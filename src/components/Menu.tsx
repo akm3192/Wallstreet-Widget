@@ -10,7 +10,7 @@ import {
   IonNote,
 } from '@ionic/react';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 import './Menu.css';
 
@@ -82,7 +82,13 @@ const Menu: React.FC = () => {
           })}
         </IonList>
 
-      
+        <IonList>
+          <IonItem>
+            <Link to="/gemini">
+              <IonLabel>Gemini Chatbot</IonLabel>
+            </Link>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonMenu>
   );
