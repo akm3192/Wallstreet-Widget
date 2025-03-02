@@ -34,6 +34,8 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 import { useState } from 'react';
+import Invest from './components/Invest';
+import Dashboard from './components/Dashboard';
 
 setupIonicReact();
 
@@ -81,8 +83,12 @@ const App: React.FC = () => {
             <Route path="/" exact={true}>
               <Redirect to="/folder/Inbox" />
             </Route>
-            <Route path="/folder/:name" exact={true}>
-              <Page />
+            
+            <Route path="/folder/Invest" exact={true}>
+              <Invest></Invest>
+            </Route>
+            <Route path="/folder/Dashboard" exact={true}>
+              <Dashboard></Dashboard>
             </Route>
 
           </IonRouterOutlet>
