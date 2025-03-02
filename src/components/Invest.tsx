@@ -83,6 +83,9 @@ function Invest() {
                 placeholder="Number of Shares"
                 onChange={changeShares}
             />
+            Current Price: ${(selectedCompany?.current_price ?? 0)}
+            <br></br>
+            Total Price: ${shares * (selectedCompany?.current_price ?? 0)}
             <IonButton className="button" onClick={() => {purchaseShares}}>Purchase</IonButton>
         </IonModal>
         </div>
