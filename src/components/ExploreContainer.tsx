@@ -1,6 +1,7 @@
 import './ExploreContainer.css';
 import Badge from './Badge';
 import { IonButton } from '@ionic/react';
+import Chatbot from '../chatbot/Chatbot';
 interface ContainerProps {
   name: string;
 }
@@ -14,6 +15,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <Badge/>
       <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
       <IonButton routerLink='/gemini'>Chatbot</IonButton>
+      <Chatbot/>
 
     </div>
   );
