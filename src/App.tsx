@@ -83,7 +83,7 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonSplitPane contentId="main">
 
-          <Menu></Menu>
+          <Menu name={username}></Menu>
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
               <Redirect to="/folder/Dashboard" />
