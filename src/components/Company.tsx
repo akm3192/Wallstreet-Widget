@@ -10,11 +10,11 @@ interface CompanyProps {
 
 const Company: React.FC<CompanyProps> = ({ abbreviation, companyName, stockTrends, onClick }) => {
     return (
-        <div className="company-row" onClick={onClick}>
-            <div className="grid-item">{abbreviation}</div>
-            <div className="grid-item">{companyName}</div>
-            <div className="grid-item">{stockTrends["2024"].join(", ")}</div>
-        </div>
+        <>
+            <div className="grid-item" onClick={onClick}>{abbreviation}</div>
+            <div className="grid-item" onClick={onClick}>{companyName}</div>
+            <div className="grid-item" onClick={onClick}>{stockTrends["2024"].join(", ")}</div>
+        </>
     );
 };
 
