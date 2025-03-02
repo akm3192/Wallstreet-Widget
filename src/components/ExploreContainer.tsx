@@ -10,6 +10,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
     <div id="container">
       {name === 'Dashboard' && <Dashboard />}
       {name === 'Invest' && <Invest />}
+      
     </div>
   );
 };//add any more pages here
