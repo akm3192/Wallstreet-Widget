@@ -29,6 +29,7 @@ const EarningsContainer: React.FC<ContainerProps> = ({ text }) => {
         <>
         <br></br>
         <div id="inline-container"><strong>${text}</strong><IonButton id="button" onClick={() => { }}>Invest</IonButton></div>
+        Start investing to earn!
         </>
       )}
       {selectedTab === 'projected' &&(
