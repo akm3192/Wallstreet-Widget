@@ -23,6 +23,8 @@ function Dashboard() {
     return (
         <>
         <div>
+            <br></br>
+
             <div className="grid-container">
                 <div className="grid-item">Abbreviation</div>
                 <div className="grid-item">Name</div>

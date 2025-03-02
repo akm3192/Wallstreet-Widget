@@ -1,4 +1,4 @@
-import { IonApp, IonPage, IonRouterOutlet, IonSplitPane, IonContent, IonItem, IonLabel, IonInput, setupIonicReact, IonButton } from '@ionic/react';
+import { IonApp, IonPage, IonRouterOutlet, IonSplitPane, IonContent, IonItem, IonLabel, IonInput, setupIonicReact, IonButton, IonTitle } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route, useHistory, useLocation } from 'react-router-dom';
 import Menu from './components/Menu';
@@ -34,6 +34,10 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 import { useState } from 'react';
+import Invest from './components/Invest';
+import Dashboard from './components/Dashboard';
+import InvestPage from './pages/InvestPage';
+import DashboardPage from './pages/DashboardPage';
 
 setupIonicReact();
 
@@ -44,7 +48,7 @@ const SignIn: React.FC<{setUsername: (value: string) => void; setPassword: (valu
 
   const signIn = () => {
     if (inputUsername && inputPassword){
-      history.push('/folder/Inbox');
+      history.push('/folder/Dashboard');
       setUsername(inputUsername);
       setPassword(inputPassword);
     }
@@ -52,6 +56,9 @@ const SignIn: React.FC<{setUsername: (value: string) => void; setPassword: (valu
 
   return (
     <IonContent>
+      <br></br>
+      <IonTitle>Welcome!</IonTitle>
+      <br></br>
       <IonItem>
         <IonLabel position="floating">Username</IonLabel>
         <IonInput value={inputUsername} onIonChange={(e)=> setInputUsername(e.detail.value!)}></IonInput>
@@ -81,9 +88,13 @@ const App: React.FC = () => {
             <Route path="/" exact={true}>
               <Redirect to="/folder/Dashboard" />
             </Route>
-            <Route path="/folder/:name" exact={true}>
-              <Page />
+            <Route path="/folder/Invest" exact={true}>
+              <InvestPage></InvestPage>
             </Route>
+            <Route path="/folder/Dashboard" exact={true}>
+              <DashboardPage></DashboardPage>
+            </Route>
+            
 
           </IonRouterOutlet>
         </IonSplitPane>

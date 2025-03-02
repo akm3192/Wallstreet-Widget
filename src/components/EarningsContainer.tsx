@@ -1,6 +1,7 @@
 import { IonButton, IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react';
 import './ExploreContainer.css';
 import { useState } from 'react';
+import { Redirect } from 'react-router';
 interface ContainerProps {
   text: string;
 }
@@ -27,7 +28,7 @@ const EarningsContainer: React.FC<ContainerProps> = ({ text }) => {
       {selectedTab === 'earnings' &&(
         <>
         <br></br>
-        <div id="inline-container"><strong>${text}</strong><IonButton id="button">Invest</IonButton></div>
+        <div id="inline-container"><strong>${text}</strong><IonButton id="button" onClick={() => { }}>Invest</IonButton></div>
         </>
       )}
       {selectedTab === 'projected' &&(
