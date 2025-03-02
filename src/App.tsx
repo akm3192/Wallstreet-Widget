@@ -36,6 +36,8 @@ import './theme/variables.css';
 import { useState } from 'react';
 import Invest from './components/Invest';
 import Dashboard from './components/Dashboard';
+import InvestPage from './pages/InvestPage';
+import DashboardPage from './pages/DashboardPage';
 
 setupIonicReact();
 
@@ -87,14 +89,12 @@ const App: React.FC = () => {
               <Redirect to="/folder/Dashboard" />
             </Route>
             <Route path="/folder/Invest" exact={true}>
-              <Invest></Invest>
+              <InvestPage></InvestPage>
             </Route>
             <Route path="/folder/Dashboard" exact={true}>
-              <Dashboard></Dashboard>
+              <DashboardPage></DashboardPage>
             </Route>
-            <Route path="/folder/:name" exact={true}>
-              <Page />
-            </Route>
+            
 
           </IonRouterOutlet>
         </IonSplitPane>
