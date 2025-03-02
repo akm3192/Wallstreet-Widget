@@ -5,6 +5,7 @@ interface CompanyProps {
     abbreviation: string;
     companyName: string;
     stockTrends: Record<string, number[]>;
+    current_price: number;   
     onClick: () => void;
 }
 

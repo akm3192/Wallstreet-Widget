@@ -10,7 +10,7 @@
   border-width: 5px;
   border-color: --ion-item-background;
   margin: 5px;
-  width: 75%;
+  width: 100%;
   text-align: left;
 }
 
@@ -19,6 +19,7 @@
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+  padding: 1rem;
 }
 
 #container strong {
