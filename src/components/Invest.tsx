@@ -18,14 +18,19 @@ function Invest() {
     const [items] = useState(companies);
     const [selectedCompany, setSelectedCompany] = useState<CompanyType | null>(null);
     const [shares, setShares] = useState(0);
+    const [text, setText] = useState('Purchase');
 
     const handleCompanyClick = (company: CompanyType) => {
         setSelectedCompany(company);
     };
-
     const purchaseShares = () => {
-        /* purchase number of shares stored in shares variable*/
-    }
+        setText('Purchase successful!');
+        setTimeout(() => {
+            setShowModal(false);
+            setText('Purchase');
+            setShares(0);
+        }, 1500);
+    };
 
     const changeShares = (event:any) => {
         setShares(event.target.value);
@@ -86,7 +91,7 @@ function Invest() {
             Current Price: ${(selectedCompany?.current_price ?? 0)}
             <br></br>
             Total Price: ${shares * (selectedCompany?.current_price ?? 0)}
-            <IonButton className="button" onClick={() => {purchaseShares}}>Purchase</IonButton>
+            <IonButton className="button" onClick={purchaseShares}>{text}</IonButton>
         </IonModal>
         </div>
 
