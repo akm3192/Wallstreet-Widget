@@ -83,7 +83,9 @@ const App: React.FC = () => {
             <Route path="/" exact={true}>
               <Redirect to="/folder/Inbox" />
             </Route>
-            
+            <Route path="/folder/:name" exact={true}>
+              <Page />
+            </Route>
             <Route path="/folder/Invest" exact={true}>
               <Invest></Invest>
             </Route>
