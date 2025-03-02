@@ -51,7 +51,7 @@ function Dashboard() {
             )}
         </div>
         <div className="container">
-            <EarningsContainer text="(Earnings)"></EarningsContainer>
+            <EarningsContainer text="0.00"></EarningsContainer>
         </div>
         </>
     );
