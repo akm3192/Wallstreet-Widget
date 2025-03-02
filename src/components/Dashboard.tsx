@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Dashboard.css';
 import companies from '../companies.json';
 import Company from './Company';
+import EarningsContainer from './EarningsContainer';
 
 interface CompanyType {
     abbreviation: string;
@@ -19,6 +20,7 @@ function Dashboard() {
     };
 
     return (
+        <>
         <div>
             <div className="grid-container">
                 <div className="grid-item">Abbreviation</div>
@@ -43,6 +45,10 @@ function Dashboard() {
                 </div>
             )}
         </div>
+        <div className="container">
+            <EarningsContainer text="(Earnings)"></EarningsContainer>
+        </div>
+        </>
     );
 }
 

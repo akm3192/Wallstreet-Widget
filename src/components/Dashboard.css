@@ -25,3 +25,10 @@
     border: 1px solid #ccc;
     background-color: #f9f9f9;
 }
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
