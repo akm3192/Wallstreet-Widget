@@ -79,6 +79,8 @@ body.chat-open {
 
             p {
                 background-color: var(--grey);
+                color: black !important;
+                text-align: left;
             }
 
             
@@ -86,11 +88,14 @@ body.chat-open {
 
         div.user {
             display: flex;
+            padding-top: 10px;
+            padding-bottom: 10px;
             justify-content: flex-end;
 
             p {
                 background-color: var(--blue);
-                color: white;
+                color: white !important;
+                text-align: left;
             }
         }
 
