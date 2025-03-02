@@ -1,0 +1,40 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-auto-rows: minmax(50px, auto); /* Auto rows with a minimum height */
+    gap: 1px; /* Gap between grid cells */
+    width: 100%; /* Full width */
+    border: 1px solid #ccc;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background-color: --ion-color-primary;
+}
+
+.company-row {
+    cursor: pointer;
+}
+
+.company-details {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: --ion-color-primary;
+}
+
+.search-bar{
+    margin-bottom: 20px;
+}
+
+.button{
+    justify-self: center;
+}
+
+.modal-box{
+    justify-items: center;
+    align-items: center;
+}

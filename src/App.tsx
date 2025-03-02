@@ -1,6 +1,6 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { IonApp, IonPage, IonRouterOutlet, IonSplitPane, IonContent, IonItem, IonLabel, IonInput, setupIonicReact, IonButton, IonTitle } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, useHistory, useLocation } from 'react-router-dom';
 import Menu from './components/Menu';
 import Page from './pages/Page';
 import Chatbot from './chatbot/Chatbot';
@@ -25,27 +25,89 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { useState } from 'react';
+import Invest from './components/Invest';
+import Dashboard from './components/Dashboard';
+import InvestPage from './pages/InvestPage';
+import DashboardPage from './pages/DashboardPage';
 
 setupIonicReact();
 
-const App: React.FC = () => {
+const SignIn: React.FC<{setUsername: (value: string) => void; setPassword: (value: string) => void}> = ({setUsername, setPassword}) => {
+  const history = useHistory();
+  const [inputUsername, setInputUsername] = useState<string>('');
+  const [inputPassword, setInputPassword] = useState<string>('');
+
+  const signIn = () => {
+    if (inputUsername && inputPassword){
+      history.push('/folder/Dashboard');
+      setUsername(inputUsername);
+      setPassword(inputPassword);
+    }
+  }
+
   return (
+    <IonContent>
+      <br></br>
+      <IonTitle>Welcome!</IonTitle>
+      <br></br>
+      <IonItem>
+        <IonLabel position="floating">Username</IonLabel>
+        <IonInput value={inputUsername} onIonChange={(e)=> setInputUsername(e.detail.value!)}></IonInput>
+      </IonItem>
+      <IonItem>
+        <IonLabel position="floating">Password</IonLabel>
+        <IonInput value={inputPassword} type="password" onIonChange={(e)=> setInputPassword(e.detail.value!)}></IonInput>
+      </IonItem>
+      <IonButton expand="full" onClick={signIn}>Sign In</IonButton>
+    </IonContent>
+  );
+}
+
+const App: React.FC = () => {
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  if (username!='' && password!=''){
+    return(
     <IonApp>
+
       <IonReactRouter>
         <IonSplitPane contentId="main">
-          <Menu />
+
+          <Menu name={username}></Menu>
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/folder/Inbox" />
+              <Redirect to="/folder/Dashboard" />
             </Route>
-            <Route path="/folder/:name" exact={true}>
-              <Page />
+            <Route path="/folder/Invest" exact={true}>
+              <InvestPage></InvestPage>
             </Route>
+            <Route path="/folder/Dashboard" exact={true}>
+              <DashboardPage></DashboardPage>
+            </Route>
+            
+
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
     </IonApp>
+    );
+  }else{
+  return (
+    <IonApp>
+
+      <IonReactRouter>
+          <IonRouterOutlet id="main">
+            <Route path="" exact={true}>
+              <SignIn setUsername={setUsername} setPassword={setPassword}></SignIn>
+        </Route>
+
+          </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
   );
+}
 };
 
 export default App;
