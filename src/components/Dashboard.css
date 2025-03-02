@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    background-color: --ion-color-primary;
 }
 
 .company-row {
@@ -23,12 +23,5 @@
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
-}
-
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
+    background-color: --ion-color-primary;
 }

@@ -8,7 +8,7 @@
 
 #box{
   border-width: 5px;
-  border-color: aliceblue;
+  border-color: --ion-item-background;
   margin: 5px;
   width: 75%;
   text-align: left;
