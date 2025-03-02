@@ -37,15 +37,19 @@ const appPages: AppPage[] = [
 ];
 
 
-const Menu: React.FC = () => {
+interface MenuProps {
+  name: string;
+}
+
+const Menu: React.FC<MenuProps> = ({name}) => {
   const location = useLocation();
 
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonListHeader>Welcome, {name}!</IonListHeader>
+          <br></br>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
