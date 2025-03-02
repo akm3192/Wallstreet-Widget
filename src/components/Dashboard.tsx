@@ -11,6 +11,7 @@ interface CompanyType {
     stock_trends: {
         [key: string]: number[];
     };
+    current_price: number;
 }
 
 function Dashboard() {
@@ -38,6 +39,7 @@ function Dashboard() {
                         companyName={company.company_name}
                         stockTrends={company.stock_trends}
                         onClick={() => handleCompanyClick(company)}
+                        current_price={company.current_price}
                     />
                 ))}
             </div>
@@ -46,6 +48,7 @@ function Dashboard() {
                     <h2>{selectedCompany.company_name}</h2>
                     <p>Abbreviation: {selectedCompany.abbreviation}</p>
                     <p>Stock Trends (2024): {selectedCompany.stock_trends["2024"].join(", ")}</p>
+                    <p>Market Price: ${selectedCompany.current_price}</p>
                     {/* Add more details as needed */}
                 </div>
             )}
