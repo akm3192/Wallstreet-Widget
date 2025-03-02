@@ -1,9 +1,10 @@
-import { IonApp, IonContent, IonInput, IonItem, IonLabel, IonList, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import Page from './pages/Page';
-import React, { useState, useEffect } from 'react';
+// import Chatbot from './chatbot/Chatbot';
+import React from 'react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -37,49 +38,6 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const GeminiChatbot: React.FC = () => {
-  const [messages, setMessages] = useState<string[]>([]);
-  const [input, setInput] = useState<string>('');
-
-  const sendMessage = async () => {
-    if (input) {
-      setMessages((prevMessages) => [...prevMessages, `User: ${input}`]);
-      const response = await fetch('/gemini', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: input }),
-      });
-      const data = await response.json();
-      setMessages((prevMessages) => [...prevMessages, `Gemini: ${data.response}`]);
-      setInput('');
-    }
-  };
-
-  return (
-    <IonContent>
-      <IonList>
-        {messages.map((message, index) => (
-          <IonItem key={index}>{message}</IonItem>
-        ))}
-      </IonList>
-      <IonItem>
-        <IonLabel position="floating">Enter message</IonLabel>
-        <IonInput
-          value={input}
-          onIonChange={(e) => setInput(e.detail.value!)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              sendMessage();
-            }
-          }}
-        ></IonInput>
-      </IonItem>
-    </IonContent>
-  );
-};
-
 const App: React.FC = () => {
   return (
     <IonApp>
@@ -93,9 +51,7 @@ const App: React.FC = () => {
             <Route path="/folder/:name" exact={true}>
               <Page />
             </Route>
-            <Route path="/gemini" exact={true}>
-              <GeminiChatbot />
-            </Route>
+            {/* <Chatbot/> */}
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
