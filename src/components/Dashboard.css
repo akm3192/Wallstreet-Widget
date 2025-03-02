@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid #ccc;
+    height:10rem;
     background-color: --ion-color-primary;
 }
 
