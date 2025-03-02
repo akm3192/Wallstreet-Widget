@@ -1,6 +1,6 @@
 import './ExploreContainer.css';
-import Badge from './Badge';
 import Dashboard from './Dashboard';
+import Invest from './Invest';
 interface ContainerProps {
   name: string;
 }
@@ -8,11 +8,10 @@ interface ContainerProps {
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   return (
     <div id="container">
-      <strong>{name}</strong>
-      <Dashboard/>
-      
+      {name === 'Dashboard' && <Dashboard />}
+      {name === 'Invest' && <Invest />}
     </div>
   );
-};
+};//add any more pages here
 
 export default ExploreContainer;

@@ -3,7 +3,6 @@ import './Dashboard.css';
 import companies from '../companies.json';
 import Company from './Company';
 import EarningsContainer from './EarningsContainer';
-import { IonHeader, IonTitle, IonToolbar } from '@ionic/react';
 
 interface CompanyType {
     abbreviation: string;
@@ -24,8 +23,6 @@ function Dashboard() {
     return (
         <>
         <div>
-            <br></br>
-            <IonTitle size="large">Dashboard</IonTitle>
             <br></br>
 
             <div className="grid-container">
