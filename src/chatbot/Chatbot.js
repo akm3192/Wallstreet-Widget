@@ -10,7 +10,7 @@ Consistency: Ensure responses are aligned in tone and style across all queries.
 Example: "Thank you for reaching out! Please let us know if you need further assistance."
 `;
 
-const API_KEY = "AIzaSyBMG8jVJsKOQnoh0i-ehpUzpZ7-2gRwokU";
+const API_KEY = "INSERT_YOUR_KEY_HERE";
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ 
     model: "gemini-2.0-flash",
