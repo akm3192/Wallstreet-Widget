@@ -96,7 +96,7 @@ const App: React.FC = () => {
 
       <IonReactRouter>
           <IonRouterOutlet id="main">
-            <Route path="/SignIn" exact={true}>
+            <Route path="" exact={true}>
               <SignIn setUsername={setUsername} setPassword={setPassword}></SignIn>
         </Route>
 
