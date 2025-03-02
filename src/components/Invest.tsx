@@ -19,7 +19,8 @@ function Invest() {
                     abbreviation={company.abbreviation}
                     companyName={company.company_name}
                     stockTrends={company.stock_trends}
-                    onClick={() => {}}/>
+                    onClick={() => { } }
+                    current_price={company.current_price}/>
             ))
         }
 
